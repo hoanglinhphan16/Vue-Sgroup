@@ -6,6 +6,12 @@
     </div>
     <div class="background container">
       <p class="title">We tell stories that drivers the heart</p>
+      <p class="content-header">
+        Laboris consectetur sunt nulla eiusmod voluptate eiusmod dolor nisi qui
+        dolor cillum fugiat ad. Id sit mollit labore sunt sit culpa qui minim
+        pariatur et officia elit id. Tempor cupidatat veniam esse ad veniam
+        dolore excepteur tempor dolor consectetur ut id.
+      </p>
       <img src="../assets/angel.jpeg" class="angel" />
     </div>
   </div>
@@ -44,7 +50,7 @@ img {
   position: absolute;
   width: 444px;
   height: 103px;
-  left: 400px;
+  left: 450px;
   top: 500px;
 
   text-align: left;
@@ -59,9 +65,26 @@ img {
 
 .angel {
   position: absolute;
-  width: 569px;
-  height: 419px;
-  left: 652px;
-  top: 811px;
+  width: 450px;
+  right: 500px;
+  top: 500px;
+}
+
+.content-header {
+  position: absolute;
+  width: 436px;
+  height: 121px;
+  left: 450px;
+  top: 600px;
+
+  font-family: "Open Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: left;
+  /* or 150% */
+
+  color: #ffffff;
 }
 </style>
