@@ -14,10 +14,14 @@
       </p>
       <span class="line"></span>
       <img src="../assets/angel.jpeg" class="angel" />
-      <img src="../assets/alone.jpg" class="alone">
+      <img src="../assets/alone.jpg" class="alone" />
       <p class="title-middle">We tell the news that makes the most impact.</p>
-      <p class="content-middle">Laboris consectetur sunt nulla eiusmod voluptate eiusmod dolor nisi qui dolor cillum fugiat ad. Id sit mollit labore sunt sit culpa qui minim pariatur et officia elit id. Tempor cupidatat veniam esse ad veniam dolore excepteur tempor dolor consectetur ut id.
-</p>
+      <p class="content-middle">
+        Laboris consectetur sunt nulla eiusmod voluptate eiusmod dolor nisi qui
+        dolor cillum fugiat ad. Id sit mollit labore sunt sit culpa qui minim
+        pariatur et officia elit id. Tempor cupidatat veniam esse ad veniam
+        dolore excepteur tempor dolor consectetur ut id.
+      </p>
     </div>
   </div>
 </template>
@@ -40,7 +44,7 @@ export default {};
   right: 600px;
   top: 365px;
 
-background: #FFFFFF;
+  background: #ffffff;
 }
 
 .alone {
@@ -98,7 +102,7 @@ img {
   line-height: 52px;
   text-align: left;
 
-  color: #FFFFFF;
+  color: #ffffff;
 }
 
 .angel {
@@ -141,7 +145,6 @@ img {
   line-height: 24px;
   /* or 150% */
 
-
-color: #FFFFFF;
+  color: #ffffff;
 }
 </style>
