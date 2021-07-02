@@ -44,15 +44,23 @@
         mollit sunt laborum fugiat consequat. Laborum incididunt commodo ullamco
         proident quis.
       </p>
-      <h5 class="author text-left">ABOUT THE AUTHOR</h5>
-      <div class="d-flex">
-        <div>
-          <img class="avatar-author mr-5" src="../assets/author.jpeg" alt="" />
-        </div>
-        <div>
-          <h5 class="name-author">Arthur Black</h5>
-          <p class="content text-left">@arthurblack</p>
-          <p>My name is Arthur Black. I'm very handsome. I'm 99 years old</p>
+
+      <div class="footer mb-5">
+        <hr />
+        <h5 class="author text-left">ABOUT THE AUTHOR</h5>
+        <div class="d-flex">
+          <div>
+            <img
+              class="avatar-author mr-5"
+              src="../assets/author.jpeg"
+              alt=""
+            />
+          </div>
+          <div>
+            <h5 class="name-author">Arthur Black</h5>
+            <p class="content text-left">@arthurblack</p>
+            <p>My name is Arthur Black. I'm very handsome. I'm 99 years old</p>
+          </div>
         </div>
       </div>
     </div>
@@ -75,6 +83,9 @@ export default {
   border-radius: 0px;
 }
 
+.footer {
+  margin-top: 100px;
+}
 .text-center {
   margin-top: 20px;
   margin-bottom: 20px;

@@ -1,45 +1,61 @@
 <template>
   <div class="wrapper">
-         <input type="checkbox" id="btn" hidden>
-         <label for="btn" class="menu-btn">
-         <i class="fas fa-bars"></i>
-         <i class="fas fa-times"></i>
-         </label>
-         <nav id="sidebar">
-            <div class="title">
-              <a href="/">
-                <img src="../../assets/logo.png" class="logo">
-              </a>
-            </div>
-            <ul class="list-items">
-               <li><a href="/"><i class="fas fa-home"></i>Home</a></li>
-               <li><a href="#"><i class="fas fa-sliders-h"></i>Clients</a></li>
-               <li><a href="#"><i class="fas fa-address-book"></i>Services</a></li>
-               <li><a href="#"><i class="fas fa-cog"></i>Settings</a></li>
-               <li><a href="#"><i class="fas fa-stream"></i>Features</a></li>
-               <li><a href="#"><i class="fas fa-user"></i>About us</a></li>
-               <li><a href="#"><i class="fas fa-globe-asia"></i>Languages</a></li>
-               <li><a href="#"><i class="fas fa-envelope"></i>Contact us</a></li>
-               <li><a href="/login"><i class="fas fa-sign-out-alt"></i>Log out</a></li>
-               <div class="icons">
-                  <a href="#"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#"><i class="fab fa-twitter"></i></a>
-                  <a href="#"><i class="fab fa-github"></i></a>
-                  <a href="#"><i class="fab fa-youtube"></i></a>
-               </div>
-            </ul>
-         </nav>
+    <input type="checkbox" id="btn" hidden />
+    <label for="btn" class="menu-btn">
+      <i class="fas fa-bars"></i>
+      <i class="fas fa-times"></i>
+    </label>
+    <nav id="sidebar">
+      <div class="title">
+        <a href="/">
+          <img src="../../assets/logo.png" class="logo" />
+        </a>
       </div>
+      <ul class="list-items">
+        <li>
+          <a href="/"><i class="fas fa-home"></i>Home</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-sliders-h"></i>Clients</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-address-book"></i>Services</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-cog"></i>Settings</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-stream"></i>Features</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-user"></i>About us</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-globe-asia"></i>Languages</a>
+        </li>
+        <li>
+          <a href="#"><i class="fas fa-envelope"></i>Contact us</a>
+        </li>
+        <li>
+          <a href="/login"><i class="fas fa-sign-out-alt"></i>Log out</a>
+        </li>
+        <div class="icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </ul>
+    </nav>
+  </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style scoped>
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -47,12 +63,12 @@ export default {
 .logo {
   width: 40px;
 }
-.wrapper{
+.wrapper {
   height: 100%;
   width: 300px;
   position: relative;
 }
-.wrapper .menu-btn{
+.wrapper .menu-btn {
   position: absolute;
   left: 20px;
   top: 10px;
@@ -69,26 +85,26 @@ export default {
   justify-content: center;
   transition: all 0.3s ease;
 }
-#btn:checked ~ .menu-btn{
+#btn:checked ~ .menu-btn {
   left: 247px;
 }
-.wrapper .menu-btn i{
+.wrapper .menu-btn i {
   position: absolute;
   font-size: 23px;
   transition: all 0.3s ease;
 }
-.wrapper .menu-btn i.fa-times{
+.wrapper .menu-btn i.fa-times {
   opacity: 0;
 }
-#btn:checked ~ .menu-btn i.fa-times{
+#btn:checked ~ .menu-btn i.fa-times {
   opacity: 1;
   transform: rotate(-180deg);
 }
-#btn:checked ~ .menu-btn i.fa-bars{
+#btn:checked ~ .menu-btn i.fa-bars {
   opacity: 0;
   transform: rotate(180deg);
 }
-#sidebar{
+#sidebar {
   position: fixed;
   background: #404040;
   height: 100%;
@@ -97,10 +113,10 @@ export default {
   left: -270px;
   transition: all 0.3s ease;
 }
-#btn:checked ~ #sidebar{
+#btn:checked ~ #sidebar {
   left: 0;
 }
-#sidebar .title{
+#sidebar .title {
   line-height: 65px;
   text-align: center;
   background: #333;
@@ -109,29 +125,29 @@ export default {
   color: #f2f2f2;
   border-bottom: 1px solid #222;
 }
-#sidebar .list-items{
+#sidebar .list-items {
   position: relative;
   background: #404040;
   width: 100%;
   height: 100%;
   list-style: none;
 }
-#sidebar .list-items li{
+#sidebar .list-items li {
   padding-left: 40px;
   line-height: 50px;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   border-bottom: 1px solid #333;
   transition: all 0.3s ease;
 }
-#sidebar .list-items li:hover{
+#sidebar .list-items li:hover {
   border-top: 1px solid transparent;
   border-bottom: 1px solid transparent;
   box-shadow: 0 0px 10px 3px #222;
 }
-#sidebar .list-items li:first-child{
+#sidebar .list-items li:first-child {
   border-top: none;
 }
-#sidebar .list-items li a{
+#sidebar .list-items li a {
   color: #f2f2f2;
   text-decoration: none;
   font-size: 18px;
@@ -140,10 +156,10 @@ export default {
   width: 100%;
   display: block;
 }
-#sidebar .list-items li a i{
+#sidebar .list-items li a i {
   margin-right: 20px;
 }
-#sidebar .list-items .icons{
+#sidebar .list-items .icons {
   width: 100%;
   height: 40px;
   text-align: center;
@@ -154,7 +170,7 @@ export default {
   align-items: center;
   justify-content: center;
 }
-#sidebar .list-items .icons a{
+#sidebar .list-items .icons a {
   height: 100%;
   width: 40px;
   display: block;
@@ -166,28 +182,10 @@ export default {
   border: 1px solid #383838;
   transition: all 0.3s ease;
 }
-#sidebar .list-items .icons a:hover{
+#sidebar .list-items .icons a:hover {
   background: #404040;
 }
-.list-items .icons a:first-child{
+.list-items .icons a:first-child {
   margin-left: 0px;
 }
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  color: #202020;
-  z-index: -1;
-  width: 100%;
-  text-align: center;
-}
-.content .header{
-  font-size: 45px;
-  font-weight: 700;
-}
-.content p{
-  font-size: 40px;
-  font-weight: 700;
-}
-</style>>
+</style>
