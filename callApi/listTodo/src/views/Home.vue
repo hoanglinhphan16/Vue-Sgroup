@@ -1,42 +1,27 @@
 <template>
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1>Todo List</h1>
+  <div class="container-fluid">
+    <div class="text-center title">
+      <h3>List Users</h3>
     </div>
-    <div>
-      <form class="nav-tabs-justified" id="app">
-        <div class="d-flex">
-          <input
-            type="text"
-            placeholder="What needs to be done"
-            class="form-control"
-            v-model="currentInput"
-          />
-          <input type="submit" value="+" class="submit" v-on:click="addToArr" />
+    <div class=" d-flex justify-content-around flex-wrap ">
+      <div
+        v-for="user in users"
+        :key="user.id"
+        class="card justify-content-around col-3 m-3"
+        style="width: 18rem;"
+      >
+        <img
+          :src="user.avatar"
+          class="card-img-top"
+          @click="$router.push('/user-detail/' + user.id)"
+        />
+        <div class="card-body text-center">
+          <h5 class="card-title">{{ user.name }}</h5>
+          <a href="#" @click="deleteData(user.id)" class="btn btn-danger"
+            >Delete</a
+          >
         </div>
-        <ul>
-          <li v-for="user in users" :key="user.id" class="d-flex">
-            <!-- <div v-on:click="user.done = !user.done" class="col-10">
-              <input
-                type="checkBox"
-                :checked="true ? user.done : user.done == false"
-              />
-              <label v-bind:class="{ completed: user.done }">
-                {{ user.name }}</label
-              >
-            </div>
-            <div class="ml-auto">
-              <a href="#" v-on:click="edit(user)"
-                ><i class="fas fa-edit"></i
-              ></a>
-              <a href="#" v-on:click="removeFromArr(user)"
-                ><i class="fas fa-trash-alt icon"></i
-              ></a>
-            </div> -->
-            <span>{{ user.name }}</span>
-          </li>
-        </ul>
-      </form>
+      </div>
     </div>
   </div>
 </template>
@@ -46,8 +31,6 @@ export default {
   name: "Home",
   data() {
     return {
-      currentInput: null,
-      edited: false,
       users: [],
     };
   },
@@ -56,41 +39,16 @@ export default {
       "https://60dece59abbdd9001722d079.mockapi.io/api/v1/users"
     );
     this.users = respone.data;
-    console.log(respone);
   },
   methods: {
-    addToArr() {
-      if (this.currentInput !== null) {
-        if (this.edited) {
-          this.id.text = this.currentInput;
-          console.log(this.id.text);
-          console.log(this.currentInput);
-          this.edited = false;
-          this.currentInput = null;
-        } else if (!this.arr.find((i) => i.text === this.currentInput)) {
-          this.arr.push({
-            text: this.currentInput,
-            done: false,
-          });
-
-          this.currentInput = null;
-        }
-      } else alert("Please fill the input");
-    },
-    removeFromArr(user) {
-      console.log(user);
-      const index = this.arr.findIndex((i) => i.text === user.text);
-      if (index >= 0) {
-        this.arr.splice(user, 1);
-      }
-    },
-    edit(user) {
-      const index = this.arr.findIndex((i) => i.text === user.text);
-      if (index >= 0) {
-        this.currentInput = user.text;
-        this.id = user;
-        this.edited = !this.edited;
-      }
+    async deleteData(id) {
+      await axios
+        .delete(
+          "https://60dece59abbdd9001722d079.mockapi.io/api/v1/users/" + id
+        )
+        .then(() => {
+          window.location.reload();
+        });
     },
   },
 };
@@ -100,6 +58,10 @@ export default {
 <style scoped>
 .container {
   width: 800px !important;
+}
+
+img {
+  cursor: pointer;
 }
 
 li {
@@ -123,5 +85,12 @@ label {
 }
 ul {
   padding-left: 0px;
+}
+
+.title {
+  margin: 5px auto;
+  width: 20%;
+  background-color: orange;
+  border-radius: 10px;
 }
 </style>
