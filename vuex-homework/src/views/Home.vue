@@ -5,7 +5,7 @@
     </div>
     <div class=" d-flex justify-content-around flex-wrap ">
       <div
-        v-for="user in users"
+        v-for="user in backUser"
         :key="user.id"
         class="card justify-content-around col-3 m-3"
         style="width: 18rem;"
@@ -16,7 +16,7 @@
           @click="$router.push('/user-detail/' + user.id)"
         />
         <div class="card-body text-center">
-          <h5 class="card-title">{{ user.name }}</h5>
+          <h5 class="card-title">{{ user.username }}</h5>
           <a href="#" @click="deleteData(user.id)" class="btn btn-danger"
             >Delete</a
           >
@@ -26,30 +26,17 @@
   </div>
 </template>
 <script>
-import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "Home",
   data() {
-    return {
-      users: [],
-    };
+    return {};
   },
-  async created() {
-    const respone = await axios.get(
-      "https://60dece59abbdd9001722d079.mockapi.io/api/v1/users"
-    );
-    this.users = respone.data;
+  computed: {
+    ...mapGetters(["backUser"]),
   },
   methods: {
-    async deleteData(id) {
-      await axios
-        .delete(
-          "https://60dece59abbdd9001722d079.mockapi.io/api/v1/users/" + id
-        )
-        .then(() => {
-          window.location.reload();
-        });
-    },
+    ...mapActions(["deleteData"]),
   },
 };
 </script>

@@ -1,9 +1,9 @@
 <template>
   <div class="container-fuild">
     <h2>This is detail of user</h2>
-    <img :src="user.avatar" />
+    <img :src="getUserDetail.avatar" />
     <div class="d-flex justify-content-center align-items-center">
-      <p class="name-user">{{ user.name }}</p>
+      <p class="name-user">{{ getUserDetail.username }}</p>
       <i class="fas fa-edit" @click="open = true"></i>
       <vue-modaltor
         :visible="open"
@@ -17,7 +17,7 @@
               <p>
                 <input
                   type="text"
-                  v-model="user.name"
+                  v-model="user.username"
                   placeholder="Hoang Linh Phan"
                 />
               </p>
@@ -33,35 +33,35 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
 export default {
   data() {
     return {
       user: {
-        name: "",
+        username: "",
+        avatar: "",
       },
       open: false,
     };
   },
-  async created() {
-    const respone = await axios.get(
-      "https://60dece59abbdd9001722d079.mockapi.io/api/v1/users/" +
-        this.$route.params.id
-    );
-    this.user = respone.data;
+  computed: {
+    ...mapGetters(["getUserById"]),
+    getUserDetail() {
+      return this.getUserById(+this.$route.params.id);
+    },
   },
+
   methods: {
+    ...mapActions(["updateData"]),
+    editUser(id) {
+      const updateData = {
+        id: id,
+        username: this.user.username,
+      };
+      this.updateData(updateData);
+    },
     hideModal() {
       this.open = false;
-    },
-    async editUser(id) {
-      await axios
-        .put("https://60dece59abbdd9001722d079.mockapi.io/api/v1/users/" + id, {
-          name: this.user.name,
-        })
-        .then(() => {
-          window.location.reload();
-        });
     },
   },
 };
