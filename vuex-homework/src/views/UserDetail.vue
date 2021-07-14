@@ -3,8 +3,12 @@
     <h2>This is detail of user</h2>
     <img :src="getUserDetail.avatar" />
     <div class="d-flex justify-content-center align-items-center">
-      <p class="name-user">{{ getUserDetail.username }}</p>
+      <div>
+        <p class="name-user">{{ getUserDetail.username }}</p>
+        <p class="name-user">{{ getUserDetail.phoneNumber }}</p>
+      </div>
       <i class="fas fa-edit" @click="open = true"></i>
+
       <vue-modaltor
         :visible="open"
         @hideModal="hideModal"
@@ -14,14 +18,23 @@
           <div style="height: 400px">
             <p class="subject">Edit Name User</p>
             <div class="content">
-              <p>
-                <input
+              <p class="d-flex justify-contents-start">
+                <label>Username: </label
+                ><input
+                  class="inputUsername"
                   type="text"
-                  v-model="user.username"
-                  placeholder="Hoang Linh Phan"
+                  v-model="getUserDetail.username"
                 />
               </p>
-              <button class="button" type="submit" @click="editUser(user.id)">
+              <p>
+                <label>phoneNumber: </label>
+                <input type="text" v-model="getUserDetail.phoneNumber" />
+              </p>
+              <button
+                class="button"
+                type="submit"
+                @click="editUser(getUserDetail)"
+              >
                 Submit
               </button>
             </div>
@@ -53,12 +66,14 @@ export default {
 
   methods: {
     ...mapActions(["updateData"]),
-    editUser(id) {
+    editUser(user) {
       const updateData = {
-        id: id,
-        username: this.user.username,
+        id: user.id,
+        username: user.username,
+        phoneNumber: user.phoneNumber,
       };
       this.updateData(updateData);
+      this.open = false;
     },
     hideModal() {
       this.open = false;
@@ -77,10 +92,11 @@ img {
   margin: 0 auto;
   display: block;
 }
+
 .name-user {
   margin-top: 14px;
   margin-right: 15px;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 i {
@@ -89,6 +105,10 @@ i {
 
 .content {
   margin-top: 30px;
+}
+
+.inputUsername {
+  margin-left: 25px;
 }
 
 .subject {
@@ -112,5 +132,9 @@ i {
 .button:hover {
   color: white;
   background: rgb(39, 38, 38);
+}
+
+label {
+  padding: auto;
 }
 </style>

@@ -47,24 +47,32 @@ const getters = {
 };
 
 const mutations = {
-  // changeName(state) {
-  //   state.users.username
-  // }
-  // updateData: (state, id) => state,
+  addData: (state, addData) => {
+    state.users.push(addData);
+    console.log(addData);
+  },
+  updateData: (state, updateData) => {
+    const index = state.users.findIndex((user) => user.id === updateData.id);
+    console.log(index);
+    if (index !== -1) {
+      state.users.username = updateData.username;
+      state.users.phoneNumber = updateData.phoneNumber;
+    }
+  },
   deleteData: (state, id) =>
     (state.users = state.users.filter((user) => user.id !== id)),
 };
 
 const actions = {
-  editUser: ({ commit }) => {
-    commit("changeName");
-  },
   deleteData: ({ commit }, id) => {
     commit("deleteData", id);
   },
-  updateData: ({ commit }, id) => {
-    console.log("abcccc");
-    commit("updateData", id);
+  updateData: ({ commit }, updateData) => {
+    console.log("updateData", updateData);
+    commit("updateData", updateData);
+  },
+  addData: ({ commit }, addData) => {
+    commit("addData", addData);
   },
 };
 export default {
